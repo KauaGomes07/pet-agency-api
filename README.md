@@ -17,7 +17,7 @@ O sistema permite que usuários realizem agendamentos, e que administradores ger
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```bash
 ├── 📁 generated/
@@ -49,15 +49,15 @@ O sistema permite que usuários realizem agendamentos, e que administradores ger
 
 ---
 
-## ⚙️ Configuração e Execução
+## Configuração e Execução
 
-### 🔧 Pré-requisitos
+### Pré-requisitos
 
 - [Node.js](https://nodejs.org/) (v18 ou superior)
 - [MongoDB](https://www.mongodb.com/)
 - [Prisma CLI](https://www.prisma.io/docs/reference/api-reference/command-reference)
 
-### 📦 Instalação
+### Instalação
 
 ```bash
 # Clone o repositório
