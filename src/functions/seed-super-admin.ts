@@ -3,8 +3,6 @@ import bcrypt from "bcrypt";
 
 
 //Executa uma função de criar um Super Admin assim que inicia o server
-//Rota de criação de Admins
-//Rota de promover admins
 
 const prisma = new PrismaClient();
 
