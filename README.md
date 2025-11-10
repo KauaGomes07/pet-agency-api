@@ -46,7 +46,7 @@ O sistema permite que usuários realizem agendamentos, e que administradores ger
 ├── 📄 prisma.config.ts
 └── ⚙️ tsconfig.json
 
-
+```
 ---
 
 ## Configuração e Execução
