@@ -1,5 +1,5 @@
 {
-  "name": "estudoapi",
+  "name": "pet-agency-api",
   "type": "module",
   "main": "index.js",
   "scripts": {
