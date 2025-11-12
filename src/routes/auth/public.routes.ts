@@ -56,7 +56,7 @@ publicRoutes.post("/login", async (req, res) => {
 		const token = jwt.sign(
 			{ id: client.id, email: client.email, role: client.role },
 			JWT_SECRET,
-			{ expiresIn: "10m" },
+			{ expiresIn: "30m" },
 		);
 
 		const payload = {
