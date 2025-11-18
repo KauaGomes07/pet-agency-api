@@ -1,11 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import express from "express";
-import auth from "../../middlewares/user.middleware";
 
 const prisma = new PrismaClient();
 export const schedulingRoutes = express.Router();
 
-schedulingRoutes.post("/:id", async (req, res) => {
+schedulingRoutes.post("/", async (req, res) => {
 	const { nomePet, servico, data, horario } = req.body;
 	const clientId = req.clientId;
 
@@ -60,7 +59,7 @@ schedulingRoutes.get("/", async (req, res) => {
 
 //Esse id aqui que refere-se ao id "criado para o pet" ao fazer o agendamento
 
-schedulingRoutes.delete("/:id", auth, async (req, res) => {
+schedulingRoutes.delete("/:id", async (req, res) => {
 	const { id } = req.params;
 	const clientId = req.clientId;
 
@@ -80,11 +79,7 @@ schedulingRoutes.delete("/:id", auth, async (req, res) => {
 		}
 
 		if (agendamento.clientId !== clientId) {
-			return res
-				.status(403)
-				.json({
-					error: "Você não tem permissão para cancelar este agendamento",
-				});
+			return res.status(403).json({ error: "Você não tem permissão para cancelar este agendamento" });
 		}
 
 		await prisma.agendamento.delete({ where: { id } });
