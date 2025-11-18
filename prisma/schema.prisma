@@ -20,14 +20,31 @@ model Client {
   password     String
   role         String @default("user")
   agendamentos Agendamento[]
+  pets      Pet[]
+}
+
+model Pet {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  age           Int?
+  species       String
+  breed         String?
+  healthNotes   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  clientId      String @db.ObjectId
+  client        Client @relation(fields: [clientId], references: [id])
 }
 
 model Agendamento {
   id      String @id @default(auto()) @map("_id") @db.ObjectId
   nomePet String
   servico String
-  data    String
+  data    DateTime
   horario String @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
   clientId String @db.ObjectId
   client   Client @relation(fields: [clientId], references: [id])
