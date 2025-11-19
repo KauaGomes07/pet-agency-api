@@ -49,13 +49,6 @@ adminRoutes.delete("/:id", async (req, res) => {
 				.json({ error: "Você não pode deletar a si mesmo." });
 		}
 
-		await prisma.agendamento.deleteMany({
-			where: { clientId: id },
-		});
-
-		await prisma.client.delete({
-			where: { id },
-		});
 		return res.status(200).json({ message: "Usuário deletado com sucesso!" });
 	} catch (error) {
 		res.status(500).json({ error: "Erro ao deletar usuário" });
