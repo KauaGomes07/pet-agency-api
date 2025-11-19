@@ -19,6 +19,9 @@ model Client {
   name         String
   password     String
   role         String @default("user")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
   agendamentos Agendamento[]
   pets      Pet[]
 }
@@ -34,7 +37,7 @@ model Pet {
   updatedAt     DateTime @updatedAt
 
   clientId      String @db.ObjectId
-  client        Client @relation(fields: [clientId], references: [id])
+  client        Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
 }
 
 model Agendamento {
@@ -47,5 +50,5 @@ model Agendamento {
   updatedAt     DateTime @updatedAt
 
   clientId String @db.ObjectId
-  client   Client @relation(fields: [clientId], references: [id])
+  client   Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
 }
